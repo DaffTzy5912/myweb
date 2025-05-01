@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard Admin</title>
+</head>
+<body>
+  <h2>Tulis Post Baru</h2>
+  <form onsubmit="submitPost(event)">
+    <input type="text" id="title" placeholder="Judul" required /><br>
+    <textarea id="content" placeholder="Konten" required></textarea><br>
+    <button type="submit">Posting</button>
+  </form>
+  <script>
+    function submitPost(e) {
+      e.preventDefault();
+      fetch('/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: title.value, content: content.value })
+      }).then(res => res.json()).then(data => {
+        if (data.success) alert('Post berhasil ditambahkan');
+        else alert('Gagal menambahkan post');
+      });
+    }
+  </script>
+</body>
+</html>
