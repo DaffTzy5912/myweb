@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog Saya</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Blog Saya</h1>
+  <div id="posts"></div>
+
+  <script>
+    fetch('https://api-blog-anda.vercel.app/posts')
+      .then(res => res.json())
+      .then(posts => {
+        const container = document.getElementById('posts');
+        posts.forEach(post => {
+          container.innerHTML += `
+            <h2>${post.title}</h2>
+            <p>${post.content}</p>
+            <hr />
+          `;
+        });
+      });
+  </script>
+</body>
+</html>
