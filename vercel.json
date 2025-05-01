@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "rootDirectory": "public",
+  "buildCommand": "echo 'Tidak perlu build karena hanya HTML/CSS/JS'",
+  "outputDirectory": ".",
+  "devCommand": "npx serve public",
+  "framework": "html",
+  "env": {
+    "NODE_VERSION": "18.x"
+  },
+  "routes": [
+    {
+      "src": "/admin-login.html",
+      "dest": "/admin-login.html"
+    },
+    {
+      "src": "/admin-dashboard.html",
+      "dest": "/admin-dashboard.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
